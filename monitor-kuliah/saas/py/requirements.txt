@@ -1,0 +1,5 @@
+pillow
+requests
+# upgrade OCR lokal (opsional, Rp0): pip install ddddocr
+# ddddocr
+# API reCAPTCHA (opsional): CAPSOLVER_API_KEY di env

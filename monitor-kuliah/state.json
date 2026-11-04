@@ -1,0 +1,207 @@
+{
+  "moodle_assign_124061": {
+    "sumber": "moodle",
+    "mk": "Komputasi Numerik / kelas A",
+    "judul": "TUGAS 01",
+    "deadline": "2026-10-15T13:10",
+    "hash_instruksi": "folio_pdf_kumpul_departemen",
+    "last_reported": "2026-09-27T23:05",
+    "url": "https://elearning.usk.ac.id/mod/assign/view.php?id=124061",
+    "note": "hidden per 2026-10-03 (activity hidden, dikumpulkan via departemen/ditutup)"
+  },
+  "moodle_assign_127190": {
+    "sumber": "moodle",
+    "mk": "Pemrograman Berorientasi Objek / kelas A",
+    "judul": "Latihan Inheritance",
+    "deadline": "2026-09-24T00:00",
+    "hash_instruksi": "latihan1-3_pertemuan5_pdf_screenshot",
+    "last_reported": "2026-09-27T23:05",
+    "url": "https://elearning.usk.ac.id/mod/assign/view.php?id=127190",
+    "status": "SUBMITTED_for_grading",
+    "status_draft": "COMPLETED_READY_FOR_CONFIRMATION",
+    "draft_md": "/opt/data/monitor-kuliah/drafts/pbo/latihan_inheritance.md",
+    "draft_pdf": "/opt/data/monitor-kuliah/drafts/pbo/Latihan_Inheritance_PBO.pdf",
+    "submitted_at": "2026-10-13T01:13WIB",
+    "submitted_file": "Latihan_Inheritance_PBO.pdf"
+  },
+  "moodle_assign_124069": {
+    "sumber": "moodle",
+    "mk": "Komputasi Numerik / kelas A",
+    "judul": "Tugas Interpolasi",
+    "deadline": "2026-11-07T09:59",
+    "hash_instruksi": "interpolasi_pemecahan_masalah",
+    "last_reported": "2026-10-13T00:44WIB",
+    "url": "https://elearning.usk.ac.id/mod/assign/view.php?id=124069",
+    "time_remaining_check": "2026-10-15T06:03WIB",
+    "submission": "none (23d3h remaining)",
+    "status": "DRAFT_READY_WAITING_OPEN",
+    "status_draft": "COMPLETED_READY_FOR_CONFIRMATION",
+    "draft_md": "/opt/data/monitor-kuliah/drafts/komnum/tugas_interpolasi.md",
+    "draft_pdf": "/opt/data/monitor-kuliah/drafts/komnum/Tugas_Interpolasi_Komnum.pdf",
+    "opens_at": "2026-11-06T18:59WIB",
+    "due_at": "2026-11-07T09:59WIB"
+  },
+  "moodle_assign_pbo_getter_setter": {
+    "sumber": "moodle",
+    "mk": "Pemrograman Berorientasi Objek / kelas A",
+    "judul": "Latihan Getter Setter",
+    "deadline": "2026-09-09T10:00",
+    "hash_instruksi": "pertemuan4",
+    "last_reported": "2026-09-27T23:05",
+    "status": "SUBMITTED_for_grading",
+    "status_draft": "COMPLETED_READY_FOR_CONFIRMATION",
+    "draft_md": "/opt/data/monitor-kuliah/drafts/pbo/latihan_getter_setter.md",
+    "draft_pdf": "/opt/data/monitor-kuliah/drafts/pbo/Latihan_Getter_Setter_PBO.pdf",
+    "submitted_at": "2026-10-13T00:23WIB",
+    "submitted_file": "Latihan_Getter_Setter_PBO.pdf"
+  },
+  "gcr_status": {
+    "sesi": "EXPIRED",
+    "note": "redirect ke accounts.google.com signin \u2014 butuh re-login manual",
+    "last_check": "2026-10-16T00:00WIB"
+  },
+  "moodle_assign_125505": {
+    "sumber": "moodle",
+    "mk": "Sistem Operasi / kelas B",
+    "judul": "Upload Tugas (Sistem Operasi)",
+    "deadline": "2026-09-11T18:00",
+    "hash_instruksi": "pertemuan3",
+    "last_reported": "2026-09-28T11:05",
+    "url": "https://elearning.usk.ac.id/mod/assign/view.php?id=125505",
+    "status": "SUBMITTED_for_grading"
+  },
+  "moodle_quiz_bd2_kuis1": {
+    "sumber": "moodle",
+    "mk": "Basis Data II / kelas B",
+    "judul": "Kuis 1 - Review Basis Data",
+    "deadline": "2026-09-18T06:53",
+    "hash_instruksi": "quiz",
+    "last_reported": "2026-09-28T11:05",
+    "url": "https://elearning.usk.ac.id/course/view.php?id=136596",
+    "status": "CLOSED"
+  },
+  "moodle_quiz_bd2_kuis2": {
+    "sumber": "moodle",
+    "mk": "Basis Data II / kelas B",
+    "judul": "Kuis 2 - SQL",
+    "deadline": "2026-09-18T06:53",
+    "hash_instruksi": "quiz",
+    "last_reported": "2026-09-28T11:05",
+    "url": "https://elearning.usk.ac.id/course/view.php?id=136596",
+    "status": "CLOSED"
+  },
+  "moodle_quiz_so": {
+    "sumber": "moodle",
+    "mk": "Sistem Operasi / kelas B",
+    "judul": "Quis Sistem Operasi",
+    "deadline": "2026-09-04T15:55",
+    "hash_instruksi": "quiz",
+    "last_reported": "2026-09-28T11:05",
+    "url": "https://elearning.usk.ac.id/course/view.php?id=136716",
+    "status": "DONE_100/100"
+  },
+  "_meta": {
+    "last_run": "2026-10-16T00:00WIB",
+    "last_result": "no_new_items; moodle_relogin_ok; gcr_expired; kelompok_so_overdue_8d; UTS+QUIZ_komnum_Sabtu17_20:00-21:00; interpolasi_waiting_open"
+  },
+  "moodle_quiz_logika_kuis1": {
+    "sumber": "moodle",
+    "mk": "Logika / kelas B",
+    "judul": "Kuis Logika Proposisi Aturan Deduksi",
+    "deadline": "2026-10-12T14:00",
+    "opened": "2026-10-05T10:46",
+    "hash_instruksi": "quiz_aturan_deduksi_individu",
+    "last_reported": "2026-10-12T06:06WIB",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=129281",
+    "status": "CLOSED (lewat 12 Oct 14:00 WIB; page tidak menampilkan attempt Dezz \u2014 kemungkinan tidak sempat submit)"
+  },
+  "moodle_quiz_logika_kuis1_en": {
+    "sumber": "moodle",
+    "mk": "Logika / kelas B",
+    "judul": "Propositional Logics Quiz - Deduction Rules",
+    "deadline": "2026-10-12T14:00",
+    "opened": "2026-10-06T09:16",
+    "hash_instruksi": "quiz_aturan_deduksi_individu_EN",
+    "last_reported": "2026-10-12T06:06WIB",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=130068",
+    "status": "CLOSED (lewat 12 Oct 14:00 WIB; page tidak menampilkan attempt Dezz \u2014 kemungkinan tidak sempat submit)"
+  },
+  "moodle_assign_130558": {
+    "sumber": "moodle",
+    "mk": "Sistem Operasi / kelas B",
+    "judul": "Upload Tugas Kelompok (Pertemuan 7)",
+    "deadline": "2026-10-08T23:59",
+    "hash_instruksi": "upload_kelompok_1perwakilan",
+    "last_reported": "2026-10-13T00:44WIB",
+    "url": "https://elearning.usk.ac.id/mod/assign/view.php?id=130558",
+    "status": "OVERDUE_no_submission (7d+, due 8 Oct 23:59)",
+    "time_remaining_check": "2026-10-15T18:00WIB"
+  },
+  "moodle_quiz_logika_129281": {
+    "sumber": "moodle",
+    "mk": "Logika / kelas B",
+    "judul": "Kuis Logika Proposisi Aturan Deduksi",
+    "deadline": "2026-10-12T14:00",
+    "hash_instruksi": "quiz_individu_deduction_rules",
+    "last_reported": "2026-10-12T06:06WIB",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=129281",
+    "status": "CLOSED (lewat 12 Oct 14:00 WIB; page tidak menampilkan attempt Dezz \u2014 kemungkinan tidak sempat submit)"
+  },
+  "moodle_quiz_logika_130068": {
+    "sumber": "moodle",
+    "mk": "Logika / kelas B",
+    "judul": "Propositional Logics Quiz - Deduction Rules",
+    "deadline": "2026-10-12T14:00",
+    "hash_instruksi": "quiz_individu_deduction_rules_en",
+    "last_reported": "2026-10-12T06:06WIB",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=130068",
+    "status": "CLOSED (lewat 12 Oct 14:00 WIB; page tidak menampilkan attempt Dezz \u2014 kemungkinan tidak sempat submit)"
+  },
+  "moodle_quiz_komnum_quiz01_124049": {
+    "sumber": "moodle",
+    "mk": "Komputasi Numerik / kelas A",
+    "judul": "QUIZ-01 \u2014 Bisection dan Regula Falsi",
+    "deadline": "2026-10-17T21:00",
+    "opened": "2026-10-17T20:00",
+    "hash_instruksi": "quiz_bisection_regulafalsi_10min_1attempt",
+    "last_reported": "2026-10-15T19:00WIB",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=124049",
+    "status": "CLOSED (opens Sat 17 Okt 20:00 WIB, closes 21:00 WIB, 1 attempt, 10 min)",
+    "timeline_note": "dashboard timeline shows 'Today 21:40 opens / 22:40 closes' but quiz page says Sat 17 Oct 20:00\u201321:00 \u2014 trust the quiz page"
+  },
+  "moodle_quiz_komnum_uts_124063": {
+    "sumber": "moodle",
+    "mk": "Komputasi Numerik / kelas A",
+    "judul": "UTS-OKT 2025 \u2014 Evaluasi Sistem Bilangan & SPL",
+    "deadline": "2026-10-17T20:30",
+    "opened": "2026-10-17T20:00",
+    "hash_instruksi": "uts_sistembilangan_spl_10min_1attempt",
+    "last_reported": "2026-10-15T19:00WIB",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=124063",
+    "status": "CLOSED (opens Sat 17 Okt 20:00 WIB, closes 20:30 WIB, 1 attempt, 10 min)"
+  },
+  "moodle_quiz_komnum_uts": {
+    "sumber": "moodle",
+    "mk": "Komputasi Numerik / kelas A",
+    "judul": "UTS-17 OKT 2026",
+    "deadline": "2026-10-17T20:19",
+    "hash_instruksi": "quiz_uts_10_soal",
+    "last_reported": "2026-10-17T20:15",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=124063",
+    "status": "FINISHED",
+    "duration": "5 mins 56 secs",
+    "evidence": "/opt/data/monitor-kuliah/evidence/uts_komnum_20261017_finished.png"
+  },
+  "moodle_quiz_komnum_quiz01": {
+    "sumber": "moodle",
+    "mk": "Komputasi Numerik / kelas A",
+    "judul": "Quiz-01",
+    "deadline": "2026-10-17T21:00",
+    "hash_instruksi": "quiz01_non_linear_15_soal",
+    "last_reported": "2026-10-17T20:53",
+    "url": "https://elearning.usk.ac.id/mod/quiz/view.php?id=124049",
+    "status": "FINISHED",
+    "duration": "8 mins 11 secs",
+    "evidence": "/opt/data/monitor-kuliah/evidence/quiz01_komnum_20261017_finished.png"
+  }
+}

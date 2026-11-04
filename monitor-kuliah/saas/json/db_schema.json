@@ -1,0 +1,1 @@
+{"tables":{"jadwal_custom":"id,user_id,kode_mk,nama,hari,mulai,selesai,ruang,aktif","state_dedupe":"tugas_id,user_id,deadline,hash_instruksi,last_reported","subscriptions":"user_id,plan_id,start,end,status","users":"id,nama,kampus_id,wa_number,cred_ref_vault,google_refresh_ref,status"}}

@@ -1,0 +1,82 @@
+{
+  "_readme": "Sumber kebenaran status fitur BantuKuliah. AI/dev: sebelum klaim fitur 'jalan', baca file ini. live-proven WAJIB ada evidence. Update = bagian DoD tiap perubahan.",
+  "updated_at": "2026-10-09",
+  "status_enum": ["live-proven", "built-untested", "stub", "planned", "claimed-only"],
+  "fitur": {
+    "auto_absen_simkuliah_usk": {
+      "status": "live-proven",
+      "evidence": "absen_state.json: SINF2009 sukses 7 Okt (Dezz), SINF2023 sukses 8 Okt 16:43/16:44 WIB (Dezz+Rizki); cron absen-watcher-dezz + absen_gate.py",
+      "note": "POST konfirmasi_kehadiran langsung (bypass SweetAlert), captcha ddddocr, login via vault. Multi-akun terbukti.",
+      "saas_gap": "perlu porting ke multi-tenant: state per-user, browser isolation per-user, jadwal dari fetch SIMKULIAH bukan file statis"
+    },
+    "monitor_tugas_moodle": {
+      "status": "live-proven",
+      "evidence": "state.json dedupe entries moodle_assign_*; cron monitor-tugas-dezz 4x/hari; evidence/moodle_dashboard_*.png",
+      "note": "auto re-login Moodle via vault saat session expired",
+      "saas_gap": "per-user Moodle credentials + dedupe di DB"
+    },
+    "monitor_tugas_google_classroom": {
+      "status": "built-untested",
+      "evidence": "state.json.gcr_status = expired 2026-10-09 (session redirect accounts.google.com)",
+      "note": "pernah jalan via sesi browser tersimpan, 2 akun; saat ini BLOCKED — butuh re-login manual/OAuth flow",
+      "saas_gap": "butuh OAuth flow resmi; sesi browser tidak scalable untuk SaaS"
+    },
+    "captcha_solver_pipeline": {
+      "status": "built-untested",
+      "evidence": "saas/py/captcha_solver.py ada + ddddocr terinstal di .venv-captcha + terbukti dipakai flow absen live",
+      "note": "urutan: reuse sesi -> ddddocr -> solver berbayar -> WA interaktif",
+      "saas_gap": "belum jadi service terpisah; logging biaya per strategi belum ada"
+    },
+    "scheduler_window_gate": {
+      "status": "live-proven",
+      "evidence": "scripts/absen_gate.py + check_schedule.py dipakai cron produksi; output 'idle' di luar window",
+      "saas_gap": "porting ke job queue multi-tenant (bukan cron+file per user)"
+    },
+    "reminder_whatsapp": {
+      "status": "stub",
+      "evidence": "saas/py/wa_agent.py = demo rule-based; saas/json/wa_templates.json + n8n_*.json = file KOSONG (0 byte)",
+      "note": "DIKLAIM di landing sebagai fitur utama. Belum ada integrasi WA nyata sama sekali.",
+      "keputusan_open": "Baileys self-hosted vs WhatsApp Cloud API",
+      "saas_gap": "SEMUA: provider, session persistence, template pesan, opt-out, rate limit"
+    },
+    "dashboard_web": {
+      "status": "claimed-only",
+      "evidence": "landing Next.js live di bantukuliah.biz.id (halaman /, /cara-kerja, /login); TIDAK ada backend/app/api yang terdeteksi",
+      "saas_gap": "auth, API, halaman app — semua belum ada"
+    },
+    "onboarding_connect_portal": {
+      "status": "claimed-only",
+      "evidence": "halaman /cara-kerja menjanjikan 4 langkah; backend verifikasi kredensial belum ada",
+      "saas_gap": "form connect -> verifikasi login nyata -> simpan ke vault per-tenant"
+    },
+    "plan_entitlement": {
+      "status": "built-untested",
+      "evidence": "saas/core_pipeline.py PLANS + entitled() jalan via --demo",
+      "saas_gap": "belum ada tabel billing/pembayaran; MVP manual activation"
+    },
+    "adapter_multi_kampus": {
+      "status": "stub",
+      "evidence": "saas/py/adapters.py: AdapterUSK ada isinya, 10 kampus lain = KampusAdapter NotImplementedError",
+      "saas_gap": "fase 3; pilih kampus dengan portal mirip SIMKULIAH dulu"
+    },
+    "dedupe_tugas": {
+      "status": "live-proven",
+      "evidence": "state.json hash_instruksi mechanism + core_pipeline.py is_new() tervalidasi --demo",
+      "saas_gap": "pindah ke tabel tasks/task_events"
+    },
+    "kredensial_vault_per_user": {
+      "status": "live-proven",
+      "evidence": "2 vault handle produksi (dezz, rizki) via browser_vault_fill; zero plaintext di state files",
+      "saas_gap": "perlu vault/secret store multi-tenant (bukan vault single-user Hermes)"
+    }
+  },
+  "landing_vs_reality": [
+    {"klaim_landing": "Absen otomatis", "realita": "live-proven (USK, 2 akun)", "ok": true},
+    {"klaim_landing": "Cek tugas otomatis", "realita": "Moodle live-proven; Classroom expired", "ok": "sebagian"},
+    {"klaim_landing": "Reminder WhatsApp", "realita": "stub — file n8n/template kosong", "ok": false},
+    {"klaim_landing": "Data terlindungi", "realita": "vault-only terbukti di workflow live, tapi belum ada infra SaaS multi-tenant", "ok": "sebagian"},
+    {"klaim_landing": "Reminder jadwal kelas 30 mnt sebelum", "realita": "belum ada pengirim notifikasi sama sekali", "ok": false},
+    {"klaim_landing": "Fleksibilitas waktu absen (mulai/sebelum selesai)", "realita": "window gate ada, preferensi per-user belum ada", "ok": "sebagian"},
+    {"klaim_landing": "USK tersedia, 6+ kampus segera", "realita": "USK live; adapter lain stub NotImplementedError", "ok": "jujur sebagai 'segera'"}
+  ]
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "name": "monitor-tugas-dezz",
+    "schedule": {
+      "kind": "cron",
+      "expr": "0 23,5,11,17 * * *",
+      "display": "0 23,5,11,17 * * *"
+    },
+    "prompt": "MONITOR TUGAS & PENGUMUMAN — Dezz (monitor-kuliah-soul)\n\nKamu adalah monitor kuliah Dezz. Jalankan tiap 06.00, 12.00, 18.00, 00.00 WIB.\n\nSUMBER YANG DICEK:\nA. Moodle USK (https://elearning.usk.ac.id) — via browser_exec\nB. Google Classroom (https://classroom.google.com) — via browser_exec, sesi Google tersimpan. Kalau ada 2 akun/profile, cek keduanya.\n\nPROSEDUR MOODLE:\n1. Buka https://elearning.usk.ac.id/my/courses.php.\n2. KALAU diarahkan ke halaman login (session expired — ini sering terjadi, WAJIB handle):\n   - Ambil password dari vault item `vault_e07e226cbdae` via Python:\n     from cryptography.fernet import Fernet\n     key = open('/opt/data/vault/vault.key','rb').read().strip()\n     data = json.loads(Fernet(key).decrypt(open('/opt/data/vault/vault.json.enc','rb').read()).decode())\n     pw = next(i['secret']['password'] for i in data['items'] if i['id']=='vault_e07e226cbdae')\n   - Isi #username = 250810701100090 dan #password = pw via JS native setter + dispatch input event\n   - Klik button[type=submit], tunggu redirect ke /my/\n3. Ambil semua course link (course/view.php?id=...).\n4. Untuk tiap course: buka halaman course + /mod/assign/index.php?id=<courseid> dan /mod/forum/ kalau ada → kumpulkan assignment (judul, due date), quiz, forum announcement terbaru.\n5. Di Moodle juga ada kalender/linimasa: cek https://elearning.usk.ac.id/my/ bagian timeline/upcoming events — lebih efisien buat deadline detection.\n\nPROSEDUR GOOGLE CLASSROOM:\n1. Buka https://classroom.google.com — kalau diarahkan ke login Google dan tidak ada sesi tersimpan → lapor 'SESI GCR EXPIRED, butuh re-login manual' dan skip bagian ini (jangan coba login sendiri).\n2. List semua class aktif, per class cek stream + classwork → tugas baru, materi, pengumuman, deadline.\n3. Kalau ada multiple account (account switcher), cek satu per satu.\n\nDEDUPE & LAPORAN:\n- Bandingkan dengan /opt/data/monitor-kuliah/state.json (map tugas_id → {deadline, hash_instruksi, last_reported}). Item dengan hash identik → skip.\n- Ada item baru/perubahan → lapor format singkat: `SUMBER | MK | item | deadline | status | aksi yg dibutuhkan dari Dezz`.\n- Update state.json tiap run. Screenshot bukti ke /opt/data/monitor-kuliah/evidence/ kalau ada item baru.\n- Nggak ada perubahan → output 'Tidak ada tugas/pengumuman baru'.\n\nATURAN KERAS:\n- JANGAN submit/upload apapun ke sistem kampus sebelum dikonfirmasi Dezz.\n- JANGAN klik tombol kumpulkan/submit/quiz start.\n- Kuis/ujian → laporkan saja, Dezz yang putuskan.\n- Password tidak boleh muncul di laporan/log — pakai vault seperti contoh.",
+    "skills": [
+      "productivity/monitor-kuliah-soul"
+    ],
+    "workdir": "/opt/data/monitor-kuliah",
+    "enabled": true
+  },
+  {
+    "name": "absen-watcher-dezz",
+    "schedule": {
+      "kind": "interval",
+      "minutes": 10,
+      "display": "every 10m"
+    },
+    "monitor_script": "absen_gate.sh",
+    "prompt": "ABSEN WATCHER — Dezz + Muhammad Rizki (monitor-kuliah-soul)\n\nKamu watcher absensi SIMKULIAH untuk DUA akun:\n- Dezz: NPM 250810701100090 → vault handle vault_3f284af2e789\n- Muhammad Rizki (teman Dezz): NPM 250810701100049 → vault handle vault_b37c19ed6f0b\n\nKredensial HANYA via browser_vault_fill — jangan pernah tulis/minta password.\n\nSetiap run (dipicu monitor gate absen_gate.py; output gate ada di prompt):\n\n1. Parse output gate: daftar kode MK aktif untuk Dezz (jadwal.json = jadwal Dezz). Rizki diasumsikan jadwal sama — halaman absensinya yang menentukan.\n2. Untuk tiap akun (Dezz dulu, lalu Rizki):\n   a. Buka https://simkuliah.usk.ac.id — kalau masih login akun lain, logout dulu (goto https://simkuliah.usk.ac.id/index.php/login/logout).\n   b. Login: isi username (NPM), baca captcha dari screenshot (crop elemen #captcha-img; kalau vision menolak, jalankan solver python simkuliah_login.py via ddddocr), password via browser_vault_fill handle di atas, submit.\n   c. Buka /index.php/absensi. Kalau 'Belum masuk waktu absen' → akun ini belum ada sesi, skip.\n   d. Kalau 'Anda sudah absen' → catat done, skip.\n   e. Kalau 'Dosen belum absen' → belum bisa, coba lagi tick berikutnya.\n   f. Kalau ada batas waktu (dosen sudah absen) → klik 'Konfirmasi Kehadiran' (button id konfirmasi-kehadiran-*) lalu POST/klik Konfirmasi. Verifikasi teks jadi 'Anda sudah absen', screenshot.\n3. Simpan state per akun di /opt/data/monitor-kuliah/absen_state.json: field done = ['SINF2015'], done_rizki = [...], per tanggal hari ini.\n4. Screenshot bukti ke /opt/data/monitor-kuliah/evidence/absen_<KODE>_<tanggal>_<akun>.png\n5. Laporan akhir (yang dikirim ke channel): ringkas — MK | akun | status (SUKSES/dosen-belum-absen/belum-waktu) | next check. Kalau semua 'idle'/tidak ada aksi, cukup satu baris atau kosong.\n\nPENTING:\n- Time-critical: kalau batas absen < 5 menit lagi, kerjakan akun itu DULUAN sebelum akun lain.\n- Jangan submit tugas/kuis. Absen saja.\n- Gagal absen setelah window habis → lapor GAGAL + alasan, jangan diam.",
+    "skills": [
+      "productivity/monitor-kuliah-soul"
+    ],
+    "workdir": "/opt/data/monitor-kuliah",
+    "enabled": true
+  }
+]

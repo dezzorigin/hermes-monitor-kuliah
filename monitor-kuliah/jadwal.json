@@ -1,0 +1,19 @@
+{
+  "_note": "Jadwal kuliah Dezz - dari screenshot SIMKULIAH. Sabtu bentrok 2 MK di jam sama, keduanya dicek.",
+  "timezone": "Asia/Jakarta",
+  "mata_kuliah": [
+    {"kode": "SINF2007", "nama": "LOGIKA", "sks": 2, "kelas": "B", "hari": "Senin", "mulai": "14:00", "selesai": "15:40", "ruang": "E.02.07", "jenis": "teori"},
+    {"kode": "SINF2019", "nama": "BASIS DATA II", "sks": 2, "kelas": "B", "hari": "Selasa", "mulai": "09:50", "selesai": "11:30", "ruang": "E.02.07", "jenis": "teori"},
+    {"kode": "SINF2021", "nama": "PRAKTIKUM BASIS DATA II", "sks": 1, "kelas": "B", "hari": "Selasa", "mulai": "14:00", "selesai": "15:40", "ruang": "Lab. Sistem Informasi dan Database", "jenis": "praktikum"},
+    {"kode": "SINF2015", "nama": "PEMROGRAMAN BERORIENTASI OBJEK", "sks": 2, "kelas": "A", "hari": "Rabu", "mulai": "08:00", "selesai": "09:40", "ruang": "E.02.07", "jenis": "teori"},
+    {"kode": "SINF2009", "nama": "ALJABAR LINIER", "sks": 2, "kelas": "B", "hari": "Rabu", "mulai": "14:00", "selesai": "15:40", "ruang": "D.03.02", "jenis": "teori"},
+    {"kode": "SINF2011", "nama": "KOMPUTASI NUMERIK", "sks": 2, "kelas": "A", "hari": "Rabu", "mulai": "16:35", "selesai": "18:15", "ruang": "E.03.06", "jenis": "teori"},
+    {"kode": "SINF2025", "nama": "PRAKTIKUM SISTEM OPERASI", "sks": 1, "kelas": "B", "hari": "Kamis", "mulai": "09:50", "selesai": "11:30", "ruang": "Lab. Sistem Informasi dan Database", "jenis": "praktikum"},
+    {"kode": "SINF2023", "nama": "SISTEM OPERASI", "sks": 2, "kelas": "B", "hari": "Kamis", "mulai": "16:35", "selesai": "18:15", "ruang": "E.02.07", "jenis": "teori"},
+    {"kode": "SINF2013", "nama": "PRAKTIKUM KOMPUTASI NUMERIK", "sks": 1, "kelas": "A", "hari": "Jumat", "mulai": "09:50", "selesai": "11:30", "ruang": "Lab. Sistem Komputer dan Jaringan", "jenis": "praktikum"},
+    {"kode": "SINF2027", "nama": "INTERAKSI MANUSIA DAN KOMPUTER", "sks": 2, "kelas": "B", "hari": "Jumat", "mulai": "14:00", "selesai": "15:40", "ruang": "AULA Lab Terpadu", "jenis": "teori"},
+    {"kode": "SINF2029", "nama": "PRAKTIKUM INTERAKSI MANUSIA DAN KOMPUTER", "sks": 1, "kelas": "B", "hari": "Jumat", "mulai": "16:35", "selesai": "18:15", "ruang": "AULA Lab Terpadu", "jenis": "praktikum"},
+    {"kode": "SINF2017", "nama": "PRAKTIKUM PEMROGRAMAN BERORIENTASI OBJEK", "sks": 1, "kelas": "A", "hari": "Sabtu", "mulai": "08:00", "selesai": "09:40", "ruang": "Lab. Data Sains dan Kecerdasan Artifisial", "jenis": "praktikum"},
+    {"kode": "MKWU2001", "nama": "PENDIDIKAN AGAMA", "sks": 2, "kelas": "M5", "hari": "Sabtu", "mulai": "08:00", "selesai": "09:40", "ruang": "E.02.05", "jenis": "teori"}
+  ]
+}

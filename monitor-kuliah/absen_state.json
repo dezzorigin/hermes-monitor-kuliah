@@ -1,0 +1,21 @@
+{
+ "tanggal": "2026-10-15",
+ "akun": {
+  "dezz": {
+   "npm": "250810701100090",
+   "done": ["SINF2023"],
+   "pending": [],
+   "login_as": "NABIL AULIA DIKA",
+   "note": "SINF2023 P9 kelas B: sudah absen (terverifikasi 16:47 WIB); batas 17:15"
+  },
+  "rizki": {
+   "npm": "250810701100049",
+   "done": ["SINF2023"],
+   "pending": [],
+   "login_as": "MUHAMMAD RIZKI",
+   "note": "SINF2023 P9 kelas B: absen via POST konfirmasi_kehadiran 16:48 WIB -> success; batas 17:15"
+  }
+ },
+ "last_check": "2026-10-15T16:48WIB",
+ "captcha_solver": "ddddocr venv .venv-captcha (requests-session login)"
+}
