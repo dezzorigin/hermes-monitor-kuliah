@@ -5,8 +5,7 @@
 | Field | Nilai |
 |---|---|
 | Nama Proyek | Hermes Monitor Kuliah |
-| Repo | dezzorigin/hermes-monitor-kuliah |
-| Tech Stack | Mixed / Static |
+| Tech Stack | Python |
 | Status | Dalam pengembangan |
 | Penanggung Jawab | Nabil Aulia Dika |
 | Versi Dokumen | 1.0 |
@@ -14,7 +13,7 @@
 
 ## 2. Latar Belakang
 
-Proyek ini dikembangkan sebagai bagian dari portofolio dan kebutuhan operasional. Dokumen ini mengikuti standar PRD nasional untuk memastikan ruang lingkup, fitur, dan kriteria keberhasilan terdefinisi dengan jelas.
+Proyek ini dikembangkan sebagai bagian dari portofolio dan kebutuhan operasional. Dokumen ini mengikuti standar PRD nasional agar ruang lingkup, fitur, dan kriteria keberhasilan terdefinisi dengan jelas.
 
 ## 3. Masalah yang Diselesaikan
 
@@ -40,16 +39,17 @@ Pengguna membutuhkan solusi digital yang efisien, terukur, dan mudah dipelihara 
 ## 6. Fitur & Persyaratan Fungsional
 
 Struktur proyek (file/direktori utama):
-- .gitignore
-- INJEKSI_CEPAT.md
-- README.md
 - config/
 - cron/
-- install_dependencies.sh
 - monitor-kuliah/
 - scripts/
-- setup_vault_guide.md
 - skills/
+- INJEKSI_CEPAT.md
+- LICENSE
+- PRD.md
+- README.md
+- install_dependencies.sh
+- setup_vault_guide.md
 
 ## 7. Persyaratan Non-Fungsional
 
@@ -60,7 +60,7 @@ Struktur proyek (file/direktori utama):
 
 ## 8. Arsitektur & Tech Stack
 
-Mixed / Static
+Python
 
 ## 9. Milestone / Roadmap
 
