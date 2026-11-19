@@ -3,7 +3,8 @@
 Dipetakan dari: jadwal.json, state.json, assign_index.json, check_schedule.py
 Run: python3 core_pipeline.py --demo
 """
-import json, hashlib, argparse
+import hashlib
+import argparse
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -47,7 +48,8 @@ def entitled(plan_id:str, fitur:str):
 def window_aktif(jadwal:list, now:datetime, pre=15, post=30, done=set()):
     aktif=[]
     for mk in jadwal:
-        if mk["kode"] in done: continue
+        if mk["kode"] in done:
+            continue
         mulai = datetime.strptime(mk["mulai"],"%H:%M").replace(
             year=now.year,month=now.month,day=now.day,tzinfo=TZ)
         if mulai-timedelta(minutes=pre) <= now <= mulai+timedelta(minutes=post):
@@ -72,6 +74,8 @@ def demo():
           "(CUSTOM_MK harus muncul = jadwal custom user jalan)")
     print("OK tahap-1 valid: dedupe + entitlement + window + registry 11 kampus")
 
-if __name__=="__main__":
-    ap=argparse.ArgumentParser();ap.add_argument("--demo",action="store_true");a=ap.parse_args()
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--demo", action="store_true")
+    a = ap.parse_args()
     demo() if a.demo else ap.print_help()

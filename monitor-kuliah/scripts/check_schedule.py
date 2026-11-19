@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Cek apakah sekarang dalam window absen. Output: JSON list MK yang aktif."""
 import json
-import sys
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 

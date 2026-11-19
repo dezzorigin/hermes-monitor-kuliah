@@ -1,9 +1,17 @@
 .env
 .env.*
+*.env
 node_modules/
 .next/
 __pycache__/
 .venv/
+.venv-captcha/
+.pytest_cache/
+.ruff_cache/
 dist/
 build/
 .DS_Store
+# artefak runtime monitor (state lokal + bukti) — bukan bagian repo
+monitor-kuliah/tmp/
+*.log
+.pages-dist/

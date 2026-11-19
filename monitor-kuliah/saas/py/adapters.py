@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Adapter base: tiap kampus turunkan class ini. USK live, 10 lain stub."""
 class KampusAdapter:
-    id = "base"; nama = "Base"
+    id = "base"
+    nama = "Base"
     def login(self, ctx): raise NotImplementedError
     def fetch_absen_page(self, ctx): raise NotImplementedError
     def fetch_tugas(self, ctx): raise NotImplementedError
     def klik_absen(self, ctx, kode_mk): raise NotImplementedError
 
 class AdapterUSK(KampusAdapter):
-    id = "usk"; nama = "USK"
+    id = "usk"
+    nama = "USK"
     def login(self, ctx):
         return {"via": "vault+empty_bypass", "ok": True}
     def fetch_absen_page(self, ctx): return {"sumber": "simkuliah", "mode": "browser"}

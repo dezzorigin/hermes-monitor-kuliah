@@ -12,15 +12,17 @@ Alur per akun (dezz -> rizki):
 Pemakaian: python3 absen_run.py            -> proses semua akun pending
            python3 absen_run.py dezz       -> hanya dezz
 """
-import json, os, re, sys, time
+import json
+import re
+import sys
+import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, "/opt/data/monitor-kuliah/scripts")
-import requests
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-import simkuliah_login as sk
+import simkuliah_login as sk  # noqa: E402 — butuh sys.path di atas
 
 TZ = ZoneInfo("Asia/Jakarta")
 BASE = "https://simkuliah.usk.ac.id"
