@@ -13,7 +13,9 @@ def entitled(plan, fitur):
 
 def solve_captcha(tipe):
     # cabang captcha_branch di JSON
-    if tipe=="none": log("captcha","no_captcha -> submit langsung"); return True
+    if tipe == "none":
+        log("captcha", "no_captcha -> submit langsung")
+        return True
     if tipe=="simple_image":
         log("captcha","simple_image (SIMAK/Moodle Aceh) -> ddddocr lokal <1s Rp0, retry max3x")
         return True
@@ -37,6 +39,8 @@ def run_demo():
     log("evidence","screenshot -> /evidence/demo-usk/2026-09-30/")
     print("OK runner searah pipeline_v2.json")
 
-if __name__=="__main__":
-    ap=argparse.ArgumentParser();ap.add_argument("--demo",action="store_true");a=ap.parse_args()
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--demo", action="store_true")
+    a = ap.parse_args()
     run_demo() if a.demo else ap.print_help()

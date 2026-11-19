@@ -6,10 +6,13 @@ Beda dengan SIMKULIAH (CodeIgniter):
   - Field: nim / password / captcha
   - Captcha: GET /auth/captcha (session-bound via laravel_session cookie)
 """
-import re, sys, time
-import requests, urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+import re
+import sys
+import time
+import requests
+import urllib3
 import ddddocr
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 OCR = ddddocr.DdddOcr(show_ad=False)
 
 BASE = "https://krs.usk.ac.id"

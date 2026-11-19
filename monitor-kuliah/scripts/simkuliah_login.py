@@ -15,18 +15,19 @@ dan kirim 't' cache-buster sama kayak browser.
 Butuh: requests + ddddocr (venv /opt/data/monitor-kuliah/.venv-captcha)
        -> install requests: uv pip install --python .venv-captcha/bin/python requests
 """
-import re, sys, time
+import re
+import sys
+import time
+import requests
+import urllib3
+import ddddocr
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+OCR = ddddocr.DdddOcr(show_ad=False)
 
 BASE = "https://simkuliah.usk.ac.id"
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
-
-import requests
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-import ddddocr
-OCR = ddddocr.DdddOcr(show_ad=False)
 
 
 def fetch_login(sess):
@@ -118,7 +119,8 @@ if __name__ == "__main__":
     sess, log = login(user, pw)
     print("\n".join(log))
     if not sess:
-        print("LOGIN GAGAL setelah semua retry"); sys.exit(1)
+        print("LOGIN GAGAL setelah semua retry")
+        sys.exit(1)
     html, tombol = absen_terbuka(sess)
     print(f"login OK; tombol presensi terdeteksi: {len(tombol)}")
     for t in tombol:
