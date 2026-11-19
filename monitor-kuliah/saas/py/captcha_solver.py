@@ -19,7 +19,7 @@ def coba_empty_bypass() -> dict:
 def preprocess_info(path: str) -> dict:
     from PIL import Image
     im = Image.open(path)
-    g = im.convert("L")
+    im.convert("L")  # validasi: gambar bisa di-grayscale-kan
     return {"size": im.size, "mode": "L", "path": path,
             "catatan": "grayscale ok; pasang ddddocr utk OCR penuh (pip install ddddocr)"}
 

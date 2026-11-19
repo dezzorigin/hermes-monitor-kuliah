@@ -40,7 +40,6 @@ def post_login(sess, nim, password, token, captcha):
                         "captcha": captcha},
                   headers={"User-Agent": UA, "Referer": BASE + "/auth"},
                   verify=False, timeout=20, allow_redirects=True)
-    body = r.text.lower()
     if "/auth" in r.url and "dashboard" not in r.url.lower():
         return r, "gagal"
     return r, "ok"
@@ -50,7 +49,7 @@ def login(nim, password, max_retry=6, workdir="/opt/data/monitor-kuliah/tmp"):
     sess = requests.Session()
     log = []
     for attempt in range(1, max_retry + 1):
-        html, token = fetch_login(sess)
+        _, token = fetch_login(sess)
         save = f"{workdir}/krs_cap_{int(time.time())}_{attempt}.png"
         jawaban = solve_captcha(sess, save_path=save)
         jawaban = re.sub(r"[^A-Za-z0-9]", "", jawaban)[:5]

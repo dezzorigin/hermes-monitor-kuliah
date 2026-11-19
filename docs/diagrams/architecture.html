@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagram Arsitektur — Hermes Monitor Kuliah</title>
+<style>
+  body { margin: 0; background: #fffef9; color: #1e2430;
+    font-family: "IBM Plex Sans", system-ui, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 48px; }
+  h1 { font-family: Georgia, serif; font-size: 1.7rem; margin: 0 0 6px; }
+  p { color: #565d6b; max-width: 75ch; }
+  a { color: #14684e; }
+  svg { width: 100%; height: auto; border: 2px solid #1e2430; border-radius: 6px;
+    background: #fff; box-shadow: 3px 3px 0 #1e2430; }
+  .note { font-size: .9rem; margin-top: 16px; }
+  code { background: #f4f1e6; border: 1px solid #d8d5cc; border-radius: 4px; padding: 0 .3em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Diagram arsitektur — Hermes Monitor Kuliah</h1>
+  <p>Dua pekerjaan cron yang berbagi satu jadwal (<code>jadwal.json</code>) dan satu
+    skill (<code>monitor-kuliah-soul</code>): absensi SIMKULIAH yang time-critical
+    dan monitor tugas Moodle + Classroom. Gambar ini digambar sebagai SVG langsung
+    (bukan Mermaid).</p>
+
+  <svg viewBox="0 0 940 620" role="img"
+    aria-label="Diagram alur: dua cron Hermes, gerbang absen, pelaksana absen, SIMKULIAH, Moodle dan Classroom, serta file state">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+        <path d="M0,0 L10,4 L0,8 z" fill="#1e2430"></path>
+      </marker>
+    </defs>
+
+    <!-- Cron -->
+    <rect x="30" y="30" width="250" height="86" rx="6" fill="#14684e" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="50" y="62" fill="#f7c948" font-size="13" font-weight="bold" font-family="monospace">CRON · tiap 10 menit</text>
+    <text x="50" y="88" fill="#fffef9" font-size="16" font-weight="bold">absen-watcher-dezz</text>
+
+    <rect x="30" y="150" width="250" height="86" rx="6" fill="#fff" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="50" y="182" fill="#565d6b" font-size="13" font-weight="bold" font-family="monospace">CRON · 06.00 / 12.00 / 18.00 / 00.00</text>
+    <text x="50" y="208" fill="#1e2430" font-size="16" font-weight="bold">monitor-tugas-dezz</text>
+
+    <!-- Gate -->
+    <rect x="350" y="30" width="250" height="86" rx="6" fill="#f7c948" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="370" y="62" fill="#1e2430" font-size="13" font-weight="bold" font-family="monospace">absen_gate.py</text>
+    <text x="370" y="88" fill="#1e2430" font-size="15">di luar jendela → “idle”</text>
+    <text x="370" y="108" fill="#1e2430" font-size="13">di dalam jendela → agent bangun</text>
+
+    <!-- Absen run -->
+    <rect x="670" y="30" width="240" height="86" rx="6" fill="#fff" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="690" y="62" fill="#1e2430" font-size="13" font-weight="bold" font-family="monospace">absen_run.py</text>
+    <text x="690" y="88" fill="#1e2430" font-size="15">login → parse → POST</text>
+    <text x="690" y="108" fill="#1e2430" font-size="13">konfirmasi → verifikasi</text>
+
+    <!-- SIMKULIAH -->
+    <rect x="670" y="170" width="240" height="86" rx="6" fill="#14684e" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="690" y="202" fill="#f7c948" font-size="13" font-weight="bold" font-family="monospace">SIMKULIAH USK</text>
+    <text x="690" y="228" fill="#fffef9" font-size="15">simkuliah.usk.ac.id</text>
+    <text x="690" y="248" fill="#fffef9" font-size="13">captcha ddddocr · retry 6×</text>
+
+    <!-- Monitor tugas targets -->
+    <rect x="350" y="150" width="250" height="86" rx="6" fill="#fff" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="370" y="182" fill="#1e2430" font-size="13" font-weight="bold" font-family="monospace">cek + dedupe</text>
+    <text x="370" y="208" fill="#1e2430" font-size="15">Moodle + Classroom</text>
+    <text x="370" y="228" fill="#1e2430" font-size="13">hash sama → skip lapor</text>
+
+    <rect x="670" y="290" width="240" height="86" rx="6" fill="#fff" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="690" y="322" fill="#1e2430" font-size="13" font-weight="bold" font-family="monospace">LAPORAN</text>
+    <text x="690" y="348" fill="#1e2430" font-size="15">SUMBER | MK | item |</text>
+    <text x="690" y="368" fill="#1e2430" font-size="15">deadline | status | aksi</text>
+
+    <!-- State files -->
+    <rect x="30" y="300" width="250" height="86" rx="6" fill="#f4f1e6" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="50" y="332" fill="#1e2430" font-size="13" font-weight="bold" font-family="monospace">STATE (JSON lokal)</text>
+    <text x="50" y="358" fill="#1e2430" font-size="15">absen_state.json</text>
+    <text x="50" y="378" fill="#1e2430" font-size="15">state.json (dedupe)</text>
+
+    <!-- Jadwal -->
+    <rect x="30" y="430" width="250" height="86" rx="6" fill="#fff" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="50" y="462" fill="#1e2430" font-size="13" font-weight="bold" font-family="monospace">jadwal.json</text>
+    <text x="50" y="488" fill="#1e2430" font-size="15">13 MK · 21 SKS</text>
+    <text x="50" y="508" fill="#1e2430" font-size="13">Senin–Sabtu · WIB</text>
+
+    <!-- Skill -->
+    <rect x="350" y="430" width="250" height="86" rx="6" fill="#fff" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="370" y="462" fill="#1e2430" font-size="13" font-weight="bold" font-family="monospace">SKILL · monitor-kuliah-soul</text>
+    <text x="370" y="488" fill="#1e2430" font-size="15">aturan + pitfall terbukti</text>
+    <text x="370" y="508" fill="#1e2430" font-size="13">tugas: lapor dulu, absen: auto</text>
+
+    <!-- Vault -->
+    <rect x="670" y="430" width="240" height="86" rx="6" fill="#b3261e" stroke="#1e2430" stroke-width="2"></rect>
+    <text x="690" y="462" fill="#fffef9" font-size="13" font-weight="bold" font-family="monospace">VAULT HERMES (Fernet)</text>
+    <text x="690" y="488" fill="#fffef9" font-size="15">password di memori saja</text>
+    <text x="690" y="508" fill="#fffef9" font-size="13">tak pernah ditulis / di-log</text>
+
+    <!-- Arrows -->
+    <line x1="280" y1="73" x2="348" y2="73" stroke="#1e2430" stroke-width="2" marker-end="url(#arrow)"></line>
+    <line x1="600" y1="73" x2="668" y2="73" stroke="#1e2430" stroke-width="2" marker-end="url(#arrow)"></line>
+    <line x1="790" y1="116" x2="790" y2="168" stroke="#1e2430" stroke-width="2" marker-end="url(#arrow)"></line>
+    <line x1="280" y1="193" x2="348" y2="193" stroke="#1e2430" stroke-width="2" marker-end="url(#arrow)"></line>
+    <line x1="600" y1="193" x2="668" y2="193" stroke="#1e2430" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"></line>
+    <line x1="600" y1="333" x2="668" y2="333" stroke="#1e2430" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"></line>
+    <line x1="155" y1="300" x2="155" y2="386" stroke="#1e2430" stroke-width="2" stroke-dasharray="6 4"></line>
+    <line x1="475" y1="430" x2="475" y2="386" stroke="#1e2430" stroke-width="2" stroke-dasharray="6 4"></line>
+    <line x1="790" y1="430" x2="790" y2="386" stroke="#1e2430" stroke-width="2" stroke-dasharray="6 4"></line>
+    <line x1="280" y1="473" x2="348" y2="473" stroke="#1e2430" stroke-width="2" stroke-dasharray="6 4"></line>
+    <line x1="600" y1="116" x2="790" y2="116" stroke="#1e2430" stroke-width="2" stroke-dasharray="6 4"></line>
+    <text x="640" y="108" fill="#565d6b" font-size="12">baca jadwal</text>
+    <text x="30" y="560" fill="#565d6b" font-size="13">Garis putus-putus = baca/tulis state, bukan alur utama. Laporan tugas tidak pernah men-submit apa pun ke sistem kampus.</text>
+    <text x="30" y="584" fill="#565d6b" font-size="13">Detail tiap panah: docs/ARCHITECTURE.md. Jendela: check_schedule mulai−15/+30 mnt; gate mulai−10/selesai+10 mnt.</text>
+  </svg>
+
+  <p class="note">Sumber: <a href="../ARCHITECTURE.md">docs/ARCHITECTURE.md</a> ·
+    <a href="../../monitor-kuliah/jadwal.json">monitor-kuliah/jadwal.json</a> ·
+    <a href="../../cron/cron_jobs.json">cron/cron_jobs.json</a></p>
+</div>
+</body>
+</html>

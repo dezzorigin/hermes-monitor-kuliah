@@ -1,0 +1,11 @@
+# Dependensi produksi Hermes Monitor Kuliah — dipin eksplisit.
+# Versi = rilis terbaru PyPI per 2026-11-19 (dicek via pypi.org/json).
+# Di-sweep HIGH/CRITICAL di CI oleh scripts/advisory-sweep.py (OSV, PyPI).
+# ddddocr + reportlab opsional di runtime (captcha OCR lokal, PDF draft),
+# tapi tetap dipin + di-sweep karena terpasang di venv automation.
+requests==2.34.2
+urllib3==2.8.0
+cryptography==50.0.2
+ddddocr==1.6.1
+pillow==13.0.0
+reportlab==5.1.0

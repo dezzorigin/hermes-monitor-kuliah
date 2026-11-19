@@ -15,7 +15,7 @@ dan kirim 't' cache-buster sama kayak browser.
 Butuh: requests + ddddocr (venv /opt/data/monitor-kuliah/.venv-captcha)
        -> install requests: uv pip install --python .venv-captcha/bin/python requests
 """
-import re, sys, time, urllib.parse
+import re, sys, time
 
 BASE = "https://simkuliah.usk.ac.id"
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -77,7 +77,7 @@ def login(username, password, max_retry=6, workdir="/opt/data/monitor-kuliah/tmp
     for attempt in range(1, max_retry + 1):
         _, cap_url = fetch_login(sess)          # captcha baru tiap gagal
         save = f"{workdir}/cap_{int(time.time())}_{attempt}.png"
-        jawaban, png = solve_captcha(sess, cap_url, save_path=save)
+        jawaban, _ = solve_captcha(sess, cap_url, save_path=save)
         jawaban = re.sub(r"\D", "", jawaban)[:5]     # pastikan 5 digit angka
         log.append(f"try{attempt}: ocr='{jawaban}' file={save}")
         r, verdict = post_login(sess, username, password, jawaban)
@@ -112,7 +112,7 @@ def konfirmasi(sess, params: dict):
 
 
 if __name__ == "__main__":
-    import json, getpass
+    import getpass
     user = sys.argv[1] if len(sys.argv) > 1 else input("NPM: ")
     pw = sys.argv[2] if len(sys.argv) > 2 else getpass.getpass("Password: ")
     sess, log = login(user, pw)

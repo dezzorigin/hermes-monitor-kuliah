@@ -3,7 +3,7 @@
 Dipetakan dari: jadwal.json, state.json, assign_index.json, check_schedule.py
 Run: python3 core_pipeline.py --demo
 """
-import json, hashlib, argparse
+import hashlib, argparse
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 

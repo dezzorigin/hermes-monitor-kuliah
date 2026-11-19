@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Runner tahap-1.5: arah automation persis pipeline_v2.json. Run: python3 runner.py --demo"""
 import argparse
-from datetime import datetime
 from zoneinfo import ZoneInfo
 TZ = ZoneInfo("Asia/Jakarta")
 
